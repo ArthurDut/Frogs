@@ -1,6 +1,7 @@
 import pygame
 import pytmx
 import pyscroll
+from player import Player
 
 class Game:
 
@@ -13,16 +14,24 @@ class Game:
         tmx_data = pytmx.util_pygame.load_pygame('Bourg_Jaajette.tmx')
         map_data = pyscroll.data.TiledMapData(tmx_data)
         map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
+        map_layer.zoom = 2
+
+        #Génération du joueur
+        player_position = tmx_data.get_object_by_name("player")
+        self.player = Player(player_position.x, player_position.y)
 
         #utilisation des calques
-        self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=1)
-
+        self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=4)
+        self.group.add(self.player)
 
     def run(self):
         #Boucle de la fenêtre
         running = True
 
         while running:
+
+            self.group.update()
+            self.group.center(self.player.rect.center)
             self.group.draw(self.screen)
             pygame.display.flip()
             for event in pygame.event.get():
