@@ -21,14 +21,14 @@ class Game:
         player_position = tmx_data.get_object_by_name("player")
         self.player = Player(player_position.x, player_position.y)
 
-        """
-        # Définition des collisions
+
+        # Définition table des collisions
         self.walls = []
 
         for obj in tmx_data.objects:
             if obj.type == "collision":
                 self.walls.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
-        """
+
 
         # utilisation des calques
         self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=4)
@@ -50,6 +50,12 @@ class Game:
             self.player.move_right()
             self.player.change_animation('right')
 
+    def update(self):
+        self.group.update()
+        for sprite in self.group.sprites():
+            if sprite.feet.collidelist(self.walls) > -1:
+                sprite.move_back()
+
     def run(self):
 
         clock = pygame.time.Clock()
@@ -58,9 +64,9 @@ class Game:
         running = True
 
         while running:
-
+            self.player.save_location()
             self.handle_input()
-            self.group.update()
+            self.update()
             self.group.center(self.player.rect.center)
             self.group.draw(self.screen)
             pygame.display.flip()
