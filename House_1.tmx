@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="1">
- <tileset firstgid="1" source="Housing_Elements.tsx"/>
- <tileset firstgid="28" source="Housing_Wall.tsx"/>
- <tileset firstgid="138" source="Housin_Floor.tsx"/>
- <tileset firstgid="512" source="Housing_Interior.tsx"/>
- <tileset firstgid="832" source="Elements.tsx"/>
- <tileset firstgid="1072" source="HousingSet.tsx"/>
- <tileset firstgid="1288" source="Maisons.tsx"/>
+ <tileset firstgid="1" source="Jeu de tuiles/House_1/Housing_Elements.tsx"/>
+ <tileset firstgid="28" source="Jeu de tuiles/House_1/Housing_Wall.tsx"/>
+ <tileset firstgid="138" source="Jeu de tuiles/House_1/Housin_Floor.tsx"/>
+ <tileset firstgid="512" source="Jeu de tuiles/House_1/Housing_Interior.tsx"/>
+ <tileset firstgid="832" source="Jeu de tuiles/House_1/Elements.tsx"/>
+ <tileset firstgid="1072" source="Jeu de tuiles/House_1/HousingSet.tsx"/>
+ <tileset firstgid="1288" source="Jeu de tuiles/House_1/Maisons.tsx"/>
  <layer id="1" name="Floor" width="25" height="25">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
