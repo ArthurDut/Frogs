@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="41">
  <tileset firstgid="1" name="Elements" tilewidth="16" tileheight="16" tilecount="27" columns="9" backgroundcolor="#898989">
-  <image source="../../Desktop/projet prog/NinjaAdventure/Backgrounds/Tilesets/Interior/Elements.png" trans="ffffff" width="144" height="48"/>
+  <image source="../Assets/Tilesets/Interior/Elements.png" trans="ffffff" width="144" height="48"/>
  </tileset>
- <tileset firstgid="28" source="Jeu de tuiles/Maison_1UP/TilesetInterior.tsx"/>
- <tileset firstgid="348" source="Jeu de tuiles/Maison_1UP/TilesetInteriorFloor.tsx"/>
- <tileset firstgid="722" source="Jeu de tuiles/Maison_1UP/TilesetWallSimple2.tsx"/>
- <tileset firstgid="832" source="Jeu de tuiles/Maison_1UP/TilesetElementTrans.tsx"/>
- <tileset firstgid="1072" source="Jeu de tuiles/Maison_1UP/TilesetHouseTrans.tsx"/>
- <tileset firstgid="1739" source="Jeu de tuiles/Maison_1UP/4 BigSet Trans.tsx"/>
- <tileset firstgid="1955" source="Jeu de tuiles/Maison_1UP/Elements.tsx"/>
+ <tileset firstgid="28" source="../Jeu de tuiles/Maison_1UP/TilesetInterior.tsx"/>
+ <tileset firstgid="348" source="../Jeu de tuiles/Maison_1UP/TilesetInteriorFloor.tsx"/>
+ <tileset firstgid="722" source="../Jeu de tuiles/Maison_1UP/TilesetWallSimple2.tsx"/>
+ <tileset firstgid="832" source="../Jeu de tuiles/Maison_1UP/TilesetElementTrans.tsx"/>
+ <tileset firstgid="1072" source="../Jeu de tuiles/Maison_1UP/TilesetHouseTrans.tsx"/>
+ <tileset firstgid="1739" source="../Jeu de tuiles/Maison_1UP/4 BigSet Trans.tsx"/>
+ <tileset firstgid="1955" source="../Jeu de tuiles/Maison_1UP/Elements.tsx"/>
  <layer id="1" name="Floor" width="25" height="25">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

@@ -12,7 +12,7 @@ class Game:
         pygame.display.set_caption("Frog's Quest")
 
         # importation de la carte
-        tmx_data = pytmx.util_pygame.load_pygame('Routin.tmx')
+        tmx_data = pytmx.util_pygame.load_pygame('../Maps/Bourg_Jaajette.tmx')
         map_data = pyscroll.data.TiledMapData(tmx_data)
         map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
         map_layer.zoom = 3
@@ -34,6 +34,7 @@ class Game:
         self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=4)
         self.group.add(self.player)
 
+
     def handle_input(self):
         pressed = pygame.key.get_pressed()
 
@@ -50,8 +51,10 @@ class Game:
             self.player.move_right()
             self.player.change_animation('right')
 
+
     def update(self):
         self.group.update()
+
         for sprite in self.group.sprites():
             if sprite.feet.collidelist(self.walls) > -1:
                 sprite.move_back()
