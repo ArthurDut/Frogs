@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="30">
+ <tileset firstgid="1" source="../Jeu de tuiles/Armory/TilesetInteriorFloor.tsx"/>
+ <tileset firstgid="375" source="../Jeu de tuiles/Armory/TilesetInterior.tsx"/>
+ <tileset firstgid="695" source="../Jeu de tuiles/Armory/TilesetHouse.tsx"/>
+ <tileset firstgid="1362" source="../Jeu de tuiles/Armory/TilesetElement.tsx"/>
+ <tileset firstgid="1602" source="../Jeu de tuiles/Armory/Tileset_Rpg_Interior.tsx"/>
+ <tileset firstgid="4674" source="../Jeu de tuiles/Armory/rpg_items.tsx"/>
+ <layer id="3" name="Floor" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgxlMAOKJFOBJRNixDIiXU4BXjNoxaseoHaN2jNpBkh17gHgvBXgfEXaMguEPABpesXE=
+  </data>
+ </layer>
+ <layer id="4" name="Walls" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF5AAFJgYGFSpgVSbcdgTgkSMFhI7aMWrHqB2jdozaMaLs2ACU20IFvJVKbh0FtAEAKy8a3w==
+  </data>
+ </layer>
+ <layer id="5" name="Carpet" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwWABC1gZEjawgukFA+2WUTC4AQB75wMA
+  </data>
+ </layer>
+ <layer id="6" name="Elements_1" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztlE0OgjAQRidhyoZT6EH0Gi68iDfwCB5IXfgTg6ILxbUujGfwa1qSpikwoCvTl7zQlpkptMkQRfqyVERr68qqGTDRkM34kRA9EzPWcTu4hxu4Ve17FIi5WM/WHLVHcAwnmDOeis26jivhHV7hTbAHp8h3TOGbw7F6PRTfh6Y9fkWo1oHN+lxwNj55oF5m6xzx7gQL+GKzvlDt+ZJv7oIkP6v59yk3z9vy63DPZubV1HP3fRck5/ltfrwPOf94H24Pr8Pt+X6+hKqHN1H1/EjE5QOjGjxS
+  </data>
+ </layer>
+ <layer id="7" name="Elements_2" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF5AI1EVT+K1YGhtd48BtW6tj7HIc5gSLYxQmBAh4GhkIeCPsDFwPDRyAWwmFWAJr4Bm4Gho3chO24ADT/ItSOAKD6QDx6gtDsEADqE+QhbAc20CJEnj5cIBqPeUxshPUnsRBWE0mhm12JsCMChx1FaOKFONRpEGEHMrgFNOcwEN8H4jloZs4A8q8B8XUgvkGi35soDKs/woTVNFNox18i7DiPIzzL0ewuxuGWf0TY8QbJDlGg+kdAsx4A8XQ0M2cB+brAPGgCxJoklilvKQyrzUSkq9cU2nGBmLSLIzwFWTH4DdjUTSUxfyADPVYMPlY7RsEoAAEAJoQtmQ==
+  </data>
+ </layer>
+ <objectgroup id="8" name="Calque d'Objets 1">
+  <object id="1" type="collision" x="50" y="50" width="13.5" height="283"/>
+  <object id="2" type="collision" x="49" y="48" width="297.5" height="31.5"/>
+  <object id="3" type="collision" x="64.5" y="80.5" width="79" height="15.5"/>
+  <object id="4" type="collision" x="74" y="97.5" width="15" height="14"/>
+  <object id="5" x="121" y="94.5" width="23.5" height="18"/>
+  <object id="6" type="collision" x="256" y="80" width="80.5" height="16"/>
+  <object id="7" type="collision" x="313" y="94" width="22" height="18"/>
+  <object id="8" type="collision" x="335" y="48.5" width="17.5" height="286"/>
+  <object id="9" type="collision" x="48.5" y="320.5" width="296" height="13.5"/>
+  <object id="11" type="collision" x="114" y="307.5" width="27.5" height="12"/>
+  <object id="12" type="collision" x="258" y="307" width="30" height="13"/>
+  <object id="14" type="collision" x="63.5" y="192.5" width="14.5" height="111"/>
+  <object id="15" type="collision" x="65" y="129" width="12.5" height="47.5"/>
+  <object id="16" type="collision" x="177" y="128" width="77.5" height="15"/>
+  <object id="17" type="collision" x="241" y="65.5" width="14" height="77.5"/>
+  <object id="18" type="collision" x="144" y="79" width="15.5" height="63.5"/>
+  <object id="19" type="collision" x="256.5" y="127.5" width="14" height="13.5"/>
+  <object id="20" type="collision" x="320" y="128.5" width="16.5" height="47.5"/>
+  <object id="21" type="collision" x="320.5" y="192.5" width="15.5" height="47"/>
+  <object id="22" type="collision" x="320" y="256" width="16" height="47.5"/>
+  <object id="23" type="collision" x="161.5" y="304" width="13.5" height="14.5"/>
+  <object id="24" type="collision" x="223.5" y="305" width="16" height="14"/>
+  <object id="25" type="collision" x="111.5" y="240" width="62.5" height="15"/>
+  <object id="26" type="collision" x="225.5" y="240" width="63" height="15"/>
+  <object id="27" type="collision" x="224.5" y="175.5" width="62.5" height="14.5"/>
+  <object id="28" type="collision" x="112" y="176" width="62.5" height="16"/>
+ </objectgroup>
+</map>
