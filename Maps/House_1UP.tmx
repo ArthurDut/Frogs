@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="41">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="44">
  <tileset firstgid="1" name="Elements" tilewidth="16" tileheight="16" tilecount="27" columns="9" backgroundcolor="#898989">
   <image source="../Assets/Tilesets/Interior/Elements.png" trans="ffffff" width="144" height="48"/>
  </tileset>
@@ -127,7 +127,7 @@
 </data>
  </layer>
  <objectgroup id="6" name="Calque d'Objets 1">
-  <object id="1" name="player" x="102.667" y="130">
+  <object id="1" name="player" x="96.3337" y="98.6667">
    <point/>
   </object>
   <object id="2" type="collision" x="34" y="30.6667" width="332" height="18"/>
@@ -161,5 +161,9 @@
   <object id="36" x="426" y="135.333"/>
   <object id="37" type="collision" x="207.333" y="310.667" width="16" height="27.3333"/>
   <object id="40" x="149.333" y="-95.3333"/>
+  <object id="41" name="exit_house_up" x="304.5" y="114" width="47.25" height="11.75"/>
+  <object id="43" name="spawn_house_up" x="329.833" y="136.833">
+   <point/>
+  </object>
  </objectgroup>
 </map>
