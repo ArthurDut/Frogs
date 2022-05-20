@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="94">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="98">
  <tileset firstgid="1" source="../Jeu de tuiles/Bourg Jaajette/TilesetFloor.tsx"/>
  <tileset firstgid="573" source="../Jeu de tuiles/Bourg Jaajette/eau.tsx"/>
  <tileset firstgid="1049" source="../Jeu de tuiles/Bourg Jaajette/Ajustements.tsx"/>
@@ -513,6 +513,14 @@
   </object>
   <object id="92" name="enter_routin" x="-0.25" y="306" width="11.5" height="47.5"/>
   <object id="93" name="enter_routin_exit" x="17.75" y="330.5">
+   <point/>
+  </object>
+  <object id="94" name="enter_armory" x="657.5" y="481.75" width="12.5" height="19.5"/>
+  <object id="95" name="enter_armory_exit" x="663" y="515.75">
+   <point/>
+  </object>
+  <object id="96" name="enter_dojo" x="273.818" y="480.909" width="13.2727" height="19.4545"/>
+  <object id="97" name="exit_dojo_player" x="281.091" y="514.545">
    <point/>
   </object>
  </objectgroup>

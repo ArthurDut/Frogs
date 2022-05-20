@@ -162,7 +162,7 @@
   <object id="37" type="collision" x="207.333" y="310.667" width="16" height="27.3333"/>
   <object id="40" x="149.333" y="-95.3333"/>
   <object id="41" name="exit_house_up" x="304.5" y="114" width="47.25" height="11.75"/>
-  <object id="43" name="spawn_house_up" x="329.833" y="136.833">
+  <object id="43" name="spawn_house_up" x="331.333" y="144.833">
    <point/>
   </object>
  </objectgroup>

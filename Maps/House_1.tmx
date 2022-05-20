@@ -212,7 +212,7 @@
    <point/>
   </object>
   <object id="28" name="enter_house_up" x="289.25" y="144.25" width="46.5" height="11.75"/>
-  <object id="29" name="exit_house_up" x="313.25" y="171.25">
+  <object id="29" name="exit_house_up" x="315.25" y="173.25">
    <point/>
   </object>
  </objectgroup>

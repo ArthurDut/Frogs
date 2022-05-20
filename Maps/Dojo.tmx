@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="9">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="11">
  <tileset firstgid="1" source="../Jeu de tuiles/Dojo/TilesetInteriorFloor.tsx"/>
  <tileset firstgid="375" source="../Jeu de tuiles/Dojo/Interiors_free_16x16.tsx"/>
  <tileset firstgid="1799" source="../Jeu de tuiles/Dojo/TilesetInterior.tsx"/>
  <tileset firstgid="2119" source="../Jeu de tuiles/Dojo/Tileset_Rpg_Interior.tsx"/>
+ <tileset firstgid="5191" source="../Jeu de tuiles/Dojo/4 BigSetTrans.tsx"/>
+ <tileset firstgid="5407" source="../Jeu de tuiles/Dojo/Interiors_free_16x16 trans.tsx"/>
+ <tileset firstgid="6831" source="../Jeu de tuiles/Dojo/4 BigSet trans.tsx"/>
+ <tileset firstgid="7047" source="../Jeu de tuiles/Maison_1UP/4 BigSet Trans.tsx"/>
  <layer id="1" name="Floor" width="15" height="15">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -47,15 +51,15 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,622,623,623,623,623,623,623,623,625,0,0,0,
-0,0,0,638,0,0,0,0,0,0,0,641,0,0,0,
-0,0,0,638,0,622,623,623,623,625,0,641,0,0,0,
-0,0,0,638,0,638,0,0,0,641,0,641,0,0,0,
-0,0,0,638,0,638,0,0,0,641,0,641,0,0,0,
-0,0,0,638,0,638,0,0,0,641,0,641,0,0,0,
-0,0,0,638,0,654,656,656,656,657,0,641,0,0,0,
-0,0,0,638,0,0,0,0,0,0,0,641,0,0,0,
-0,0,0,654,656,656,656,656,656,656,656,657,0,0,0,
+0,0,0,644,645,645,645,645,645,645,645,646,0,0,0,
+0,0,0,660,0,0,0,0,0,0,0,678,0,0,0,
+0,0,0,660,0,644,1073742517,1073742517,1073742517,646,0,678,0,0,0,
+0,0,0,660,0,660,0,0,0,662,0,678,0,0,0,
+0,0,0,660,0,660,0,0,0,662,0,678,0,0,0,
+0,0,0,660,0,660,0,0,0,662,0,678,0,0,0,
+0,0,0,660,0,692,693,693,693,694,0,678,0,0,0,
+0,0,0,660,0,0,0,0,0,0,0,678,0,0,0,
+0,0,0,692,693,693,693,693,693,693,693,694,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -64,8 +68,8 @@
  <layer id="4" name="Elements" width="15" height="15">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,1431,1256,0,0,0,0,0,0,0,1255,1431,0,0,
-0,0,1447,1272,0,0,0,0,0,0,0,1271,1447,0,0,
+0,0,1431,1256,0,0,0,0,0,0,0,1257,1431,0,0,
+0,0,1447,1272,0,0,0,0,0,0,0,1273,1447,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -75,7 +79,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,1431,1257,0,0,0,0,0,0,0,1256,1431,0,0,
-0,0,1447,1273,0,0,0,0,0,0,0,1272,1447,0,0,
+0,0,1447,1273,0,0,7257,7257,7257,0,0,1272,1447,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
@@ -89,5 +93,9 @@
   <object id="6" type="collision" x="32.5" y="193" width="31" height="13"/>
   <object id="7" type="collision" x="176.5" y="28.5" width="32" height="17.5"/>
   <object id="8" type="collision" x="176" y="193" width="32" height="13"/>
+  <object id="9" name="exit_dojo" x="96.0358" y="195.416" width="47.3012" height="10.5114"/>
+  <object id="10" name="enter_dojo_player" x="119.448" y="178.694">
+   <point/>
+  </object>
  </objectgroup>
 </map>

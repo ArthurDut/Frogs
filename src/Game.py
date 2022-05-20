@@ -9,7 +9,7 @@ class Game:
 
     def __init__(self):
         # Fenêtre du jeu
-        self.screen = pygame.display.set_mode((800, 800))
+        self.screen = pygame.display.set_mode((700, 700))
         pygame.display.set_caption("Frog's Quest")
 
         # Génération du joueur

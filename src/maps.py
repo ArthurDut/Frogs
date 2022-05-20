@@ -28,7 +28,9 @@ class MapManager:
 
         self.register_map("Bourg_Jaajette", portals=[
             Portal(from_world="Bourg_Jaajette", origin_point="enter_house", target_world="House_1", teleport_point="spawn_house"),
-            Portal(from_world="Bourg_Jaajette", origin_point="enter_routin", target_world="Routin", teleport_point="spawn_routin")
+            Portal(from_world="Bourg_Jaajette", origin_point="enter_routin", target_world="Routin", teleport_point="spawn_routin"),
+            Portal(from_world="Bourg_Jaajette", origin_point="enter_armory", target_world="Armory", teleport_point="spawn_armory"),
+            Portal(from_world="Bourg_Jaajette", origin_point="enter_dojo", target_world="Dojo", teleport_point="enter_dojo_player")
         ])
         self.register_map("Routin", portals=[
             Portal(from_world="Routin", origin_point="exit_routin", target_world="Bourg_Jaajette", teleport_point="enter_routin_exit")
@@ -39,6 +41,12 @@ class MapManager:
         ])
         self.register_map("House_1UP", portals=[
             Portal(from_world="House_1UP", origin_point="exit_house_up", target_world="House_1", teleport_point="exit_house_up")
+        ])
+        self.register_map("Armory", portals=[
+            Portal(from_world="Armory", origin_point="armory_exit", target_world="Bourg_Jaajette", teleport_point="enter_armory_exit")
+        ])
+        self.register_map("Dojo", portals=[
+            Portal(from_world="Dojo", origin_point="exit_dojo", target_world="Bourg_Jaajette", teleport_point="exit_dojo_player")
         ])
 
         self.teleport_player('player')
