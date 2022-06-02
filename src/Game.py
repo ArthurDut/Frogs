@@ -13,7 +13,7 @@ class Game:
         pygame.display.set_caption("Frog's Quest")
 
         # Génération du joueur
-        self.player = Player(0, 0)
+        self.player = Player()
         self.map_manager = MapManager(self.screen, self.player)
 
     def handle_input(self):
@@ -21,16 +21,12 @@ class Game:
 
         if pressed[pygame.K_UP]:
             self.player.move_up()
-            self.player.change_animation('up')
         elif pressed[pygame.K_DOWN]:
             self.player.move_down()
-            self.player.change_animation('down')
         elif pressed[pygame.K_LEFT]:
             self.player.move_left()
-            self.player.change_animation('left')
         elif pressed[pygame.K_RIGHT]:
             self.player.move_right()
-            self.player.change_animation('right')
 
     def update(self):
         self.map_manager.update()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="11">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="12">
  <tileset firstgid="1" source="../Jeu de tuiles/Dojo/TilesetInteriorFloor.tsx"/>
  <tileset firstgid="375" source="../Jeu de tuiles/Dojo/Interiors_free_16x16.tsx"/>
  <tileset firstgid="1799" source="../Jeu de tuiles/Dojo/TilesetInterior.tsx"/>
@@ -97,5 +97,8 @@
   <object id="10" name="enter_dojo_player" x="119.448" y="178.694">
    <point/>
   </object>
+ </objectgroup>
+ <objectgroup id="6" name="NPCPaths">
+  <object id="11" name="dojo_master_path1" x="112" y="95.875" width="16" height="16.125"/>
  </objectgroup>
 </map>
