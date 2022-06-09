@@ -36,21 +36,22 @@ class MapManager:
             Portal(from_world="Bourg_Jaajette", origin_point="enter_armory", target_world="Armory", teleport_point="spawn_armory"),
             Portal(from_world="Bourg_Jaajette", origin_point="enter_dojo", target_world="Dojo", teleport_point="enter_dojo_player")
         ], npcs=[
-            NPC("villager", nb_points=4, dialog=["J'ai perdu les clés de ma maison", "Je suis enfermé dehors !"]),
-            NPC("boy", nb_points=2, dialog=["C'est enfin le jour de la fête du dieu Grenouille !", "J'attendais ça depuis si longtemps"]),
-            NPC("old_woman", nb_points=1, dialog=["Mon fils c'est noyé ici il y a quelques années", "Mais le dieu Grenouille veille sur lui désormais"])
+            NPC("villager", nb_points=4, dialog1=["J'ai perdu les clés de ma maison", "Je suis enfermé dehors !"], dialog2=["", ""]),
+            NPC("boy", nb_points=2, dialog1=["C'est enfin le jour de la fête du dieu Grenouille !", "J'attendais ça depuis si longtemps"], dialog2=["", ""]),
+            NPC("old_woman", nb_points=1, dialog1=["Mon fils s'est noyé ici il y a quelques années", "Mais le dieu Grenouille veille sur lui désormais"], dialog2=["", ""])
         ])
         self.register_map("Routin", portals=[
             Portal(from_world="Routin", origin_point="exit_routin", target_world="Bourg_Jaajette", teleport_point="enter_routin_exit")
         ], npcs=[
-            NPC("Krillin", nb_points=2, dialog=["Kienzan !", "J'ai peur d'encore mourrir face a ces monstres..."]),
-            NPC("monk_1", nb_points=1, dialog=["Merci de m'avoir sauvé de tous ces affreux monetres"])
+            NPC("Krillin", nb_points=2, dialog1=["Kienzan !", "J'ai peur d'encore mourrir face a ces monstres..."], dialog2=["", ""]),
+            NPC("monk_1", nb_points=1, dialog1=["Merci de m'avoir sauvé de tous ces affreux "], dialog2=["monstres"])
         ])
         self.register_map("House_1", portals=[
             Portal(from_world="House_1", origin_point="exit_house", target_world="Bourg_Jaajette", teleport_point="enter_house_exit"),
             Portal(from_world="House_1", origin_point="enter_house_up", target_world="House_1UP", teleport_point="spawn_house_up")
         ], npcs=[
-            NPC("giovanni", nb_points=1, dialog=["Tu es maintenant assez grand pour découvrir le monde par toi-même", "Va voir le dieu Grenouille et reçois sa bénédiction"])
+            NPC("giovanni", nb_points=1, dialog1=["Tu es maintenant assez grand pour découvrir le ", "Va voir le dieu Grenouille et reçois sa bénédiction"]
+                , dialog2=["monde par toi même", ""])
         ])
         self.register_map("House_1UP", portals=[
             Portal(from_world="House_1UP", origin_point="exit_house_up", target_world="House_1", teleport_point="exit_house_up")
@@ -58,13 +59,15 @@ class MapManager:
         self.register_map("Armory", portals=[
             Portal(from_world="Armory", origin_point="armory_exit", target_world="Bourg_Jaajette", teleport_point="enter_armory_exit")
         ], npcs=[
-            NPC("armor_man", nb_points=1, dialog=["Tu as besoin d'une arme ?", "J'ai ce qu'il te faut, prends cette épée oubliée par un ancien chevalier"])
+            NPC("armor_man", nb_points=1, dialog1=["Tu as besoin d'une arme ?", "J'ai ce qu'il te faut, prends cette épée oubliée par "],
+                dialog2=["", "un ancien chevalier"])
         ])
 
         self.register_map("Dojo", portals=[
             Portal(from_world="Dojo", origin_point="exit_dojo", target_world="Bourg_Jaajette", teleport_point="exit_dojo_player")
         ], npcs=[
-            NPC("dojo_master", nb_points=1, dialog=["La Grenouille maléfique est bien trop déroce pour toi", 'Tu dois recevoir mon entrainement afin de devenir plus puissant', "Voilà ! Tu peux maintenant aller affronter cette maudite Grenouille !"])
+            NPC("dojo_master", nb_points=1, dialog1=["La Grenouille maléfique est bien trop déroce pour ", 'Tu dois recevoir mon entrainement afin de devenir ', "Voilà ! Tu peux maintenant aller affronter cette "],
+                dialog2=["toi", "plus puissant", "maudite Grenouille !"])
         ])
 
         self.teleport_player('player')
@@ -73,7 +76,7 @@ class MapManager:
     def check_npc_collisions(self, dialog_box):
         for sprite in self.get_group().sprites():
              if sprite.feet.colliderect(self.player.rect) and type(sprite) is NPC:
-                 dialog_box.execute(sprite.dialog)
+                 dialog_box.execute(sprite.dialog1, sprite.dialog2)
 
     def check_collisions(self):
         #portails
