@@ -2,6 +2,7 @@ from dataclasses import dataclass
 import pygame, pytmx, pyscroll
 
 from src.player import NPC
+from src.player import Monsters
 
 
 
@@ -21,6 +22,7 @@ class Map:
     tmx_data: pytmx.TiledMap
     portals: list[Portal]
     npcs: list[NPC]
+    monsters: list[Monsters]
 
 class MapManager:
     def __init__(self, screen, player):
@@ -45,6 +47,12 @@ class MapManager:
         ], npcs=[
             NPC("Krillin", nb_points=2, dialog1=["Kienzan !", "J'ai peur d'encore mourrir face a ces monstres..."], dialog2=["", ""]),
             NPC("monk_1", nb_points=1, dialog1=["Merci de m'avoir sauvé de tous ces affreux "], dialog2=["monstres"])
+        ], monsters=[
+            Monsters('Beast1', nb_points=2),
+            Monsters("Beast2", nb_points=1),
+            Monsters("Beast3", nb_points=1),
+            Monsters("Beast4", nb_points=1),
+            Monsters("Beast5", nb_points=4)
         ])
         self.register_map("House_1", portals=[
             Portal(from_world="House_1", origin_point="exit_house", target_world="Bourg_Jaajette", teleport_point="enter_house_exit"),
@@ -72,7 +80,9 @@ class MapManager:
 
         self.teleport_player('player')
         self.teleport_npcs()
+        self.teleport_mosnters()
 
+    #Collisons pour les dialogues
     def check_npc_collisions(self, dialog_box):
         for sprite in self.get_group().sprites():
              if sprite.feet.colliderect(self.player.rect) and type(sprite) is NPC:
@@ -94,6 +104,12 @@ class MapManager:
         #collision avec les murs
         for sprite in self.get_group().sprites():
 
+            if type(sprite) is Monsters:
+                if sprite.feet.colliderect(self.player.rect):
+                    sprite.speed = 0
+                else:
+                    sprite.speed = 1
+
             if type(sprite) is NPC:
                 if sprite.feet.colliderect(self.player.rect):
                     sprite.speed = 0
@@ -109,7 +125,7 @@ class MapManager:
         self.player.position[1] = point.y
         self.player.save_location()
 
-    def register_map(self, name, portals=[], npcs=[]):
+    def register_map(self, name, portals=[], npcs=[], monsters=[]):
         # importation de la carte
         tmx_data = pytmx.util_pygame.load_pygame(f'Maps/{name}.tmx')
         map_data = pyscroll.data.TiledMapData(tmx_data)
@@ -133,7 +149,10 @@ class MapManager:
             group.add(npc)
 
         # Creer un objet Map
-        self.maps[name] = Map(name, walls, group, tmx_data, portals, npcs)
+        self.maps[name] = Map(name, walls, group, tmx_data, portals, npcs, monsters)
+
+        for monster in monsters:
+            group.add(monster)
 
     def get_map(self):
         return self.maps[self.current_map]
@@ -156,6 +175,15 @@ class MapManager:
                 npc.load_points(map_data.tmx_data)
                 npc.teleport_spawn()
 
+    def teleport_mosnters(self):
+        for map in self.maps:
+            map_data = self.maps[map]
+            monsters = map_data.monsters
+
+            for monster in monsters:
+                monster.load_points(map_data.tmx_data)
+                monster.teleport_spawn()
+
     def draw(self):
         self.get_group().draw(self.screen)
         self.get_group().center(self.player.rect.center)
@@ -166,6 +194,9 @@ class MapManager:
 
         for npc in self.get_map().npcs:
             npc.move()
+
+        for monster in self.get_map().monsters:
+            monster.move()
 
 
 
