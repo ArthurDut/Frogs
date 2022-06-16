@@ -18,6 +18,12 @@ class DialogBox:
         self.reading = False
 
     def execute(self, dialog1=[], dialog2=[]):
+        """
+        :param dialog1: Liste de dialogue 1
+        :type dialog1: list
+        :param dialog2: Liste de dialogue 2
+        :type dialog2: list
+        """
         if self.reading:
             self.next_text()
         else:
@@ -28,6 +34,10 @@ class DialogBox:
             self.texts2 = dialog2
 
     def render(self, screen):
+        """
+        :param screen: Taille de la fenêtre
+        :type screen: basestring
+        """
         if self.reading:
             self.letter_index += 1
             self.letter_index2 += 1

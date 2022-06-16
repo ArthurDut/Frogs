@@ -26,6 +26,12 @@ class Map:
 
 class MapManager:
     def __init__(self, screen, player):
+        """
+        :param screen: Taille de la fenêtre
+        :type screen: basestring
+        :param player: nom du sprite du player
+        :type player: Class
+        """
         self.walls = None
         self.maps = dict()
         self.screen = screen
@@ -47,13 +53,12 @@ class MapManager:
             Portal(from_world="Routin", origin_point="exit_routin", target_world="Bourg_Jaajette", teleport_point="enter_routin_exit")
         ], npcs=[
             NPC("Krillin", nb_points=2, dialog1=["Kienzan !", "J'ai peur d'encore mourrir face a ces monstres..."], dialog2=["", ""]),
-            NPC("monk_1", nb_points=1, dialog1=["Merci de m'avoir apporté cette arme ", "Grâce a toi je vais pouvoir tuer ces monstres"], dialog2=["",""])
+            NPC("monk_1", nb_points=1, dialog1=["Merci de m'avoir apporté cette arme ", "Grâce a toi je vais pouvoir tuer ces monstres"], dialog2=["",""]),
+            NPC("boss", nb_points=1, dialog1=["Tu es venu sauver cet homme ?","Tu espère vraiment qu'il pourra me vaincre ?","Bien va lui donner cette arme"], dialog2=["","",""])
         ], monsters=[
             Monsters('Beast1', nb_points=2),
             Monsters("Beast2", nb_points=1),
-            Monsters("Beast3", nb_points=4),
-            Monsters("Beast4", nb_points=1),
-            Monsters("Beast5", nb_points=1)
+            Monsters("Beast3", nb_points=4)
         ])
         self.register_map("House_1", portals=[
             Portal(from_world="House_1", origin_point="exit_house", target_world="Bourg_Jaajette", teleport_point="enter_house_exit"),
@@ -85,6 +90,10 @@ class MapManager:
 
     #Collisons pour les dialogues
     def check_npc_collisions(self, dialog_box):
+        """
+        :param dialog_box: spécification de la boîte de dialogue
+        :type dialog_box: Class
+        """
         for sprite in self.get_group().sprites():
              if sprite.feet.colliderect(self.player.rect) and type(sprite) is NPC:
                  dialog_box.execute(sprite.dialog1, sprite.dialog2)
@@ -121,12 +130,26 @@ class MapManager:
                 sprite.move_back()
 
     def teleport_player(self, name):
+        """
+        :param name: nom de la carte
+        :type name: str
+        """
         point = self.get_object(name)
         self.player.position[0] = point.x
         self.player.position[1] = point.y
         self.player.save_location()
 
     def register_map(self, name, portals=[], npcs=[], monsters=[]):
+        """
+        :param name: nom de la carte
+        :type name: str
+        :param portals: liste de portail
+        :type portals: list
+        :param npcs: liste des NPC
+        :type npcs: list
+        :param monsters: liste des Monsters
+        :type monsters: list
+        """
         # importation de la carte
         tmx_data = pytmx.util_pygame.load_pygame(f'Maps/{name}.tmx')
         map_data = pyscroll.data.TiledMapData(tmx_data)
@@ -156,15 +179,33 @@ class MapManager:
             group.add(monster)
 
     def get_map(self):
+        """
+        :return: nom de la carte
+        :rtype: str
+        """
         return self.maps[self.current_map]
 
     def get_group(self):
+        """
+        :return: groupe de la carte
+        :rtype: str
+        """
         return self.get_map().group
 
     def get_walls(self):
+        """
+        :return: Murs de la carte
+        :rtype: str
+        """
         return self.get_map().walls
 
     def get_object(self, name):
+        """
+        :param name: nom des objets du calque objet
+        :type name: basestring
+        :return: Objets appartenant a la carte
+        :rtype: basestring
+        """
         return self.get_map().tmx_data.get_object_by_name(name)
 
     def teleport_npcs(self):

@@ -18,7 +18,9 @@ class Game:
         self.player = Player()
         self.map_manager = MapManager(self.screen, self.player)
         self.dialog_box = DialogBox()
+        """
         self.attack = Attaque()
+        """
 
     def handle_input(self):
         pressed = pygame.key.get_pressed()

@@ -18,6 +18,10 @@ class AnimateSprite(pygame.sprite.Sprite):
 
 
     def change_animation(self, name):
+        """
+        :param name: nom du sprite
+        :type name: str
+        """
         self.image = self.images[name][self.animation_index]
         self.image.set_colorkey(0, 0)
         self.clock += self.speed * 12
@@ -32,6 +36,12 @@ class AnimateSprite(pygame.sprite.Sprite):
             self.clock = 0
 
     def get_images(self, x):
+        """
+        :param x: coordonnée x
+        :type x: int
+        :return: Liste d'image
+        :rtype: list
+        """
         images = []
 
         for i in range(0, 4):
@@ -42,6 +52,14 @@ class AnimateSprite(pygame.sprite.Sprite):
         return images
 
     def get_image(self, x, y):
+        """
+        :param x: coordonnée x
+        :type x: int
+        :param y: coordonnée y
+        :type y: int
+        :return: Taille de l'image
+        :rtype: int
+        """
         image = pygame.Surface([16, 16])
         image.blit(self.sprite_sheet, (0, 0), (x, y, 16, 16))
         return image

@@ -6,6 +6,14 @@ from src.animation import AnimateSprite
 class Entity(AnimateSprite):
 
     def __init__(self, name, x, y):
+        """
+        :param name: Nom du sprite
+        :type name: str
+        :param x: coordonnée x
+        :type x: int
+        :param y: coordonnée y
+        :type y: int
+        """
         super().__init__(name)
         self.image = self.get_image(0, 0)
         self.image.set_colorkey([0, 0, 0])
@@ -51,6 +59,16 @@ class Player(Entity):
 class NPC(Entity):
 
     def __init__(self, name, nb_points, dialog1, dialog2):
+        """
+        :param name: nom du sprite
+        :type name: str
+        :param nb_points: Points définis sur Tiled
+        :type nb_points: int
+        :param dialog1: Dialogue entré dans MapManager
+        :type dialog1: str
+        :param dialog2: Dialogue entré dans MapManager
+        :type dialog2: str
+        """
         super().__init__(name, 0, 0)
         self.nb_points = nb_points
         self.points = []
@@ -89,6 +107,10 @@ class NPC(Entity):
         self.save_location()
 
     def load_points(self, tmx_data):
+        """
+        :param tmx_data: Récupère le chemin dans Tiled
+        :type tmx_data: basestring
+        """
         for num in range(1, self.nb_points + 1):
             point = tmx_data.get_object_by_name(f"{self.name}_path{num}")
             rect = pygame.Rect(point.x, point.y, point.width, point.height)
@@ -98,6 +120,12 @@ class NPC(Entity):
 class Monsters(Entity):
 
     def __init__(self, name, nb_points):
+        """
+        :param name: nom du sprite
+        :type name: str
+        :param nb_points: Points définis sur Tiled
+        :type nb_points: int
+        """
         super().__init__(name, 0, 0)
         self.nb_points = nb_points
         self.points = []
@@ -134,6 +162,10 @@ class Monsters(Entity):
         self.save_location()
 
     def load_points(self, tmx_data):
+        """
+        :param tmx_data: Récupère le chemin dans Tiled
+        :type tmx_data: basestring
+        """
         for num in range(1, self.nb_points + 1):
             point = tmx_data.get_object_by_name(f"{self.name}_path{num}")
             rect = pygame.Rect(point.x, point.y, point.width, point.height)
