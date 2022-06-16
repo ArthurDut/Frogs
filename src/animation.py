@@ -16,6 +16,7 @@ class AnimateSprite(pygame.sprite.Sprite):
         }
         self.speed = 2
 
+
     def change_animation(self, name):
         self.image = self.images[name][self.animation_index]
         self.image.set_colorkey(0, 0)
@@ -33,7 +34,7 @@ class AnimateSprite(pygame.sprite.Sprite):
     def get_images(self, x):
         images = []
 
-        for i in range(0, 3):
+        for i in range(0, 4):
             y = i*16
             image = self.get_image(x, y)
             images.append(image)

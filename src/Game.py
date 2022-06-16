@@ -4,6 +4,7 @@ import pyscroll
 from player import Player
 from src.dialog import DialogBox
 from src.maps import MapManager
+from src.Attack import Attaque
 
 
 class Game:
@@ -17,6 +18,7 @@ class Game:
         self.player = Player()
         self.map_manager = MapManager(self.screen, self.player)
         self.dialog_box = DialogBox()
+        self.attack = Attaque()
 
     def handle_input(self):
         pressed = pygame.key.get_pressed()
@@ -41,10 +43,10 @@ class Game:
         running = True
 
         while running:
+            self.map_manager.draw()
             self.player.save_location()
             self.handle_input()
             self.update()
-            self.map_manager.draw()
             self.dialog_box.render(self.screen)
             pygame.display.flip()
             for event in pygame.event.get():
@@ -53,6 +55,10 @@ class Game:
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         self.map_manager.check_npc_collisions(self.dialog_box)
+                """
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_k:
+                        self.map_manager.check_monster_collision(self.attack)"""
 
             clock.tick(60)
 
