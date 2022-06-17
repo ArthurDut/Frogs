@@ -75,7 +75,7 @@ class NPC(Entity):
         self.dialog1 = dialog1
         self.dialog2 = dialog2
         self.name = name
-        self.speed = 1
+        self.speed = 0.7
         self.current_point = 0
 
     def move(self):
