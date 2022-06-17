@@ -14,7 +14,7 @@ class AnimateSprite(pygame.sprite.Sprite):
             'right': self.get_images(48),
             'up': self.get_images(16),
         }
-        self.speed = 2
+        self.speed = 3
 
 
     def change_animation(self, name):
@@ -58,7 +58,7 @@ class AnimateSprite(pygame.sprite.Sprite):
         :param y: coordonnée y
         :type y: int
         :return: Taille de l'image
-        :rtype: int
+        :rtype: basestring
         """
         image = pygame.Surface([16, 16])
         image.blit(self.sprite_sheet, (0, 0), (x, y, 16, 16))

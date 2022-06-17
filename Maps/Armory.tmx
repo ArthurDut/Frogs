@@ -74,6 +74,6 @@
   </object>
  </objectgroup>
  <objectgroup id="11" name="NPCPaths">
-  <object id="34" name="armor_man_path1" x="192" y="111.818" width="16.1818" height="17.0909"/>
+  <object id="34" name="armor_man_path1" x="192" y="111.818" width="16.1818" height="16.7273"/>
  </objectgroup>
 </map>
