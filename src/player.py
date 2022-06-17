@@ -7,6 +7,7 @@ class Entity(AnimateSprite):
 
     def __init__(self, name, x, y):
         """
+            Constructeur de la classe Entity
         :param name: Nom du sprite
         :type name: str
         :param x: coordonnée x
@@ -23,29 +24,50 @@ class Entity(AnimateSprite):
         self.old_position = self.position.copy()
 
     def save_location(self):
+        """
+            Fonction qui sauvegarde la position du joueur
+        """
         self.old_position = self.position.copy()
 
     def move_right(self):
+        """
+            Fonction qui permet de se déplacer a droite
+        """
         self.change_animation("right")
         self.position[0] += self.speed
 
     def move_left(self):
+        """
+            Fonction qui permet de se déplacer a gauche
+        """
         self.change_animation("left")
         self.position[0] -= self.speed
 
     def move_up(self):
+        """
+            Fonction qui permet de se déplacer en haut
+        """
         self.change_animation("up")
         self.position[1] -= self.speed
 
     def move_down(self):
+        """
+            Fonction qui permet de se déplacer en bas
+        """
         self.change_animation("down")
         self.position[1] += self.speed
 
     def update(self):
+        """
+            Fonction qui vérifie la position de l'entité
+        """
         self.rect.topleft = self.position
         self.feet.midbottom = self.rect.midbottom
 
     def move_back(self):
+        """
+            Fonction qui téléporte le joueur en arrière en cas de collision
+        """
         self.position = self.old_position
         self.rect.topleft = self.position
         self.feet.midbottom = self.rect.midbottom
@@ -53,6 +75,9 @@ class Entity(AnimateSprite):
 
 class Player(Entity):
     def __init__(self):
+        """
+            Constructeur de la classe Player
+        """
         super().__init__("player", 0, 0)
 
 
@@ -60,6 +85,7 @@ class NPC(Entity):
 
     def __init__(self, name, nb_points, dialog1, dialog2):
         """
+            Constructeur de la classe NPC
         :param name: nom du sprite
         :type name: str
         :param nb_points: Points définis sur Tiled
@@ -79,6 +105,9 @@ class NPC(Entity):
         self.current_point = 0
 
     def move(self):
+        """
+            Fonction qui vérifie les conditions de mouvement des NPC
+        """
         current_point = self.current_point
         target_point = self.current_point + 1
 
@@ -101,6 +130,9 @@ class NPC(Entity):
             self.current_point = target_point
 
     def teleport_spawn(self):
+        """
+            Focntion qui place les NPC aux bons endroits
+        """
         location = self.points[self.current_point]
         self.position[0] = location.x
         self.position[1] = location.y
@@ -108,6 +140,7 @@ class NPC(Entity):
 
     def load_points(self, tmx_data):
         """
+            Fonction qui permet de récupérer de Tiled les points de déplacement des NPC
         :param tmx_data: Récupère le chemin dans Tiled
         :type tmx_data: basestring
         """
@@ -121,6 +154,7 @@ class Monsters(Entity):
 
     def __init__(self, name, nb_points):
         """
+            Constructeur de la classe Monsters
         :param name: nom du sprite
         :type name: str
         :param nb_points: Points définis sur Tiled
@@ -134,6 +168,9 @@ class Monsters(Entity):
         self.current_point = 0
 
     def move(self):
+        """
+            Fonction qui vérifie les conditions de mouvement des Monstres
+        """
         current_point = self.current_point
         target_point = self.current_point + 1
 
@@ -156,6 +193,9 @@ class Monsters(Entity):
             self.current_point = target_point
 
     def teleport_spawn(self):
+        """
+            Fonction qui place les Monstres aux bons endroits
+        """
         location = self.points[self.current_point]
         self.position[0] = location.x
         self.position[1] = location.y
@@ -163,6 +203,7 @@ class Monsters(Entity):
 
     def load_points(self, tmx_data):
         """
+            Fonction qui récupère sur Tiled les points de déplacement des monstres
         :param tmx_data: Récupère le chemin dans Tiled
         :type tmx_data: basestring
         """

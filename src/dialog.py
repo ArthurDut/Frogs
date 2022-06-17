@@ -6,6 +6,9 @@ class DialogBox:
     Y_POSITION = 600
 
     def __init__(self):
+        """
+            Constructeur de la classe DialogBox
+        """
         self.box = pygame.image.load('dialogs/dialog_box.png')
         self.box = pygame.transform.scale(self.box, (700, 80))
         self.texts1 = []
@@ -19,6 +22,7 @@ class DialogBox:
 
     def execute(self, dialog1=[], dialog2=[]):
         """
+            Fonction d'éxecution de la boite de dialogue
         :param dialog1: Liste de dialogue 1
         :type dialog1: list
         :param dialog2: Liste de dialogue 2
@@ -35,6 +39,7 @@ class DialogBox:
 
     def render(self, screen):
         """
+            Fonction d'affichage de la boîte de dialogue
         :param screen: Taille de la fenêtre
         :type screen: basestring
         """
@@ -55,6 +60,9 @@ class DialogBox:
             screen.blit(text2, (self.X_POSITION + 60, self.Y_POSITION + 40))
 
     def next_text(self):
+        """
+            Fonction qui permet de définir a quelle instance dialogue en est la discussion
+        """
         self.text_index += 1
         self.text_index2 += 1
         self.letter_index = 0

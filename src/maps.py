@@ -27,6 +27,7 @@ class Map:
 class MapManager:
     def __init__(self, screen, player):
         """
+            Constructeur de la classe MapManager
         :param screen: Taille de la fenêtre
         :type screen: basestring
         :param player: nom du sprite du player
@@ -93,6 +94,7 @@ class MapManager:
     #Collisons pour les dialogues
     def check_npc_collisions(self, dialog_box):
         """
+            Fonction qui vérifie si le joueur touche un npc
         :param dialog_box: spécification de la boîte de dialogue
         :type dialog_box: Class
         """
@@ -102,13 +104,20 @@ class MapManager:
 
     #Collisions pour les attaques
     def check_monster_collision(self, attack):
-
+        """
+            Fonction qui vérifie si le joueur touche un monstre
+        :param attack: gestion de l'attaque
+        :type attack: basestring
+        """
         for sprite in self.get_group().sprites():
             if sprite.feet.colliderect(self.player.rect) and type(sprite) is Monsters:
                sprite.kill()
                sprite.remove()
 
     def check_collisions(self):
+        """
+            Fonction qui vérifie si le joueur entre avec un élément de type collision
+        """
         #portails
         for portal in self.get_map().portals:
             if portal.from_world == self.current_map:
@@ -142,6 +151,7 @@ class MapManager:
 
     def teleport_player(self, name):
         """
+            Fonction qui place le joueur au point de départ paramétré sur Tiled
         :param name: nom de la carte
         :type name: str
         """
@@ -152,6 +162,7 @@ class MapManager:
 
     def register_map(self, name, portals=[], npcs=[], monsters=[]):
         """
+            Fonction qui enregistre tous les paramètres de la carte
         :param name: nom de la carte
         :type name: str
         :param portals: liste de portail
@@ -191,6 +202,7 @@ class MapManager:
 
     def get_map(self):
         """
+            Fonction qui permet de récupérer l'information de la carte actuellement affichée
         :return: nom de la carte
         :rtype: str
         """
@@ -198,6 +210,7 @@ class MapManager:
 
     def get_group(self):
         """
+            Fonction qui permet de récupérer le groupe de la carte
         :return: groupe de la carte
         :rtype: str
         """
@@ -205,6 +218,7 @@ class MapManager:
 
     def get_walls(self):
         """
+            Fonction qui permet de récupérer les éléments contenus dans 'walls'
         :return: Murs de la carte
         :rtype: str
         """
@@ -212,6 +226,7 @@ class MapManager:
 
     def get_object(self, name):
         """
+            Fonction qui permet de récupérer les objets définis sur Tiled
         :param name: nom des objets du calque objet
         :type name: basestring
         :return: Objets appartenant a la carte
@@ -220,6 +235,9 @@ class MapManager:
         return self.get_map().tmx_data.get_object_by_name(name)
 
     def teleport_npcs(self):
+        """
+            Fonction qui permet de placer les npc aux bons endroits sur les cartes
+        """
         for map in self.maps:
             map_data = self.maps[map]
             npcs = map_data.npcs
@@ -229,6 +247,9 @@ class MapManager:
                 npc.teleport_spawn()
 
     def teleport_mosnters(self):
+        """
+            Fonction qui permet de placer les monstres aux bons endroits sur les cartes
+        """
         for map in self.maps:
             map_data = self.maps[map]
             monsters = map_data.monsters
@@ -238,10 +259,18 @@ class MapManager:
                 monster.teleport_spawn()
 
     def draw(self):
+        """
+            Fonction qui permet de dessiner la carte sur l'écran
+        :rtype: object
+        """
         self.get_group().draw(self.screen)
         self.get_group().center(self.player.rect.center)
 
     def update(self):
+        """
+            Fonction qui vérifie en permanence les placements pour vérifier les
+            conditions de collisions
+        """
         self.get_group().update()
         self.check_collisions()
 

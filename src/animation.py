@@ -4,6 +4,11 @@ import pygame
 class AnimateSprite(pygame.sprite.Sprite):
 
     def __init__(self, name):
+        """
+            Constructeur de la classe AnimateSprite
+        :param name: nom du sprite
+        :type name: str
+        """
         super().__init__()
         self.sprite_sheet = pygame.image.load(f'sprites/{name}.png')
         self.animation_index = 0
@@ -19,6 +24,7 @@ class AnimateSprite(pygame.sprite.Sprite):
 
     def change_animation(self, name):
         """
+            Fonction qui se charge de changer la frame d'animation
         :param name: nom du sprite
         :type name: str
         """
@@ -37,6 +43,7 @@ class AnimateSprite(pygame.sprite.Sprite):
 
     def get_images(self, x):
         """
+            Fonction qui récupère toutes les images et les stocks dans un dictionnaire
         :param x: coordonnée x
         :type x: int
         :return: Liste d'image
@@ -53,6 +60,7 @@ class AnimateSprite(pygame.sprite.Sprite):
 
     def get_image(self, x, y):
         """
+            Fonction qui renvoie l'image a utiliser
         :param x: coordonnée x
         :type x: int
         :param y: coordonnée y

@@ -10,6 +10,9 @@ from src.maps import MapManager
 class Game:
 
     def __init__(self):
+        """
+            Constructeur de la classe Game
+        """
         # Fenêtre du jeu
         self.screen = pygame.display.set_mode((700, 700))
         pygame.display.set_caption("Frog's Quest")
@@ -20,6 +23,10 @@ class Game:
         self.dialog_box = DialogBox()
 
     def handle_input(self):
+        """
+            Cette fonction sert a vérifier quelle touche du clavier est appuyée et a
+            utiliser la fonction move en conséquqance
+        """
         pressed = pygame.key.get_pressed()
 
         if pressed[pygame.K_UP]:
@@ -32,10 +39,15 @@ class Game:
             self.player.move_right()
 
     def update(self):
+        """
+            Cette fonction sert a vérifier en permanence quelle carte est utilisée
+        """
         self.map_manager.update()
 
     def run(self):
-
+        """
+            Cette fonction est la fonction qui défini si le jeu est en marche
+        """
         clock = pygame.time.Clock()
 
         # Boucle de la fenêtre
